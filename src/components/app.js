@@ -3,12 +3,12 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Home from "./home";
 import About from "./about-me";
-import Navigation from "./nav-bar";
+import Navigation from "./navigation";
 
 export default class App extends Component {
   render() {
     return (
-      <div className="app">
+      <div className="container">
         <Router>
           <Navigation />
           <Switch>

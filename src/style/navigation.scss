@@ -1,0 +1,17 @@
+.nav-wrapper {
+  display: grid;
+  grid-template-columns: [logo-s] 1fr [logo-e links-s] 1fr [links-e];
+}
+
+.nav-wrapper {
+  .left-column {
+  }
+  .right-column {
+    display: flex;
+    justify-content: space-evenly;
+
+    a {
+      text-decoration: none;
+    }
+  }
+}
