@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 
+import Logo from "./logo";
+
 export default class Navigation extends Component {
   render() {
     return (
       <div className="nav-wrapper">
         <div className="left-column">
-          <div className="logo">RdzCore</div>
+          <Logo />
         </div>
         <div className="right-column">
           <div className="link">
