@@ -6,7 +6,7 @@ import Logo from "./logo";
 export default class Navigation extends Component {
   render() {
     return (
-      <div className="nav-wrapper">
+      <div className="nav-wrapper home-nav-wrapper">
         <div className="left-column">
           <Logo />
         </div>
