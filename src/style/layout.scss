@@ -1,5 +1,5 @@
 .container {
   display: grid;
   grid-template-columns: [s] 1fr [e];
-  grid-template-rows: [nav-bar-s] 1fr [nav-bar-e content-s] 5fr [content-e];
+  grid-template-rows: [nav-bar-s] 120px [nav-bar-e content-s] 1fr [content-e];
 }

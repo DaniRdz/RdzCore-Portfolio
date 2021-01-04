@@ -14,6 +14,44 @@ export default class Home extends Component {
             backgroundPosition: "center",
           }}
         />
+        <div className="home-info">
+          <div className="media-links">
+            <a
+              className="media-link"
+              href="https://github.com/DaniRdz"
+              target="_blank"
+            >
+              <i className="fab fa-github"></i>
+            </a>
+            <a
+              className="media-link"
+              href="https://twitter.com/RdzCore"
+              target="_blank"
+            >
+              <i className="fab fa-twitter"></i>
+            </a>
+            <a
+              className="media-link"
+              href="https://www.linkedin.com/in/daniel-rodr%C3%ADguez-contreras/"
+              target="_blank"
+            >
+              <i className="fab fa-linkedin-in"></i>
+            </a>
+            <a className="media-link" href="#">
+              <i className="fab fa-instagram"></i>
+            </a>
+          </div>
+          <div className="grettings-message">
+            <div className="title">Hi I'm Daniel</div>
+            <div className="subtitle">Fullstack Developer</div>
+          </div>
+          <button
+            onClick={() => this.props.history.push("/about-me")}
+            className="btn-contact"
+          >
+            CONTACT ME
+          </button>
+        </div>
       </div>
     );
   }
