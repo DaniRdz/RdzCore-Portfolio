@@ -17,26 +17,34 @@ export default class About extends Component {
             dapibus ac eleifend in, porttitor in odio.
           </div>
           <div className="contact-info">
-            <div className="email">
+            <div className="info email">
               <i className="far fa-envelope"></i>
-              <div className="subtitle">email</div>
+              <div className="subtitle">daniel.rod.core@gmail.com</div>
             </div>
-            <div className="phone">
+            <div className="info phone">
               <i className="fab fa-whatsapp"></i>
-              <div className="subtitle">phone</div>
+              <div className="subtitle"> 33 11 22 86 71</div>
             </div>
-            <div className="place">
+            <div className="info place">
               <i className="fas fa-map-marker-alt"></i>
-              <div className="subtitle">place</div>
+              <div className="subtitle">Guadalajara, Jalisco, México</div>
             </div>
           </div>
           <div className="media-links-icons">
-            <div className="media-link-icon">
+            <a
+              href="https://www.linkedin.com/in/daniel-rodr%C3%ADguez-contreras/"
+              target="_blank"
+              className="media-link-icon"
+            >
               <i className="fab fa-linkedin-in"></i>
-            </div>
-            <div className="media-link-icon">
+            </a>
+            <a
+              href="https://github.com/DaniRdz"
+              target="_blank"
+              className="media-link-icon"
+            >
               <i className="fab fa-github"></i>
-            </div>
+            </a>
           </div>
         </div>
       </div>

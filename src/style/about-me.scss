@@ -36,3 +36,41 @@
     }
   }
 }
+
+.contact-info {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+
+  .info {
+    display: flex;
+
+    i {
+      font-size: 2rem;
+      color: $cool-orange;
+      align-self: center;
+
+      margin-right: 10px;
+    }
+    .subtitle {
+      align-self: center;
+    }
+  }
+}
+
+.media-links-icons {
+  display: flex;
+  align-items: center;
+  padding-left: 6rem;
+
+  .media-link-icon {
+    font-size: 2rem;
+    padding-right: 20px;
+    color: $dark-soul;
+
+    transition: 0.5s ease-in-out;
+
+    :hover {
+      color: $cool-orange;
+    }
+  }
+}
