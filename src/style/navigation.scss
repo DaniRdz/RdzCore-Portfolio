@@ -26,6 +26,13 @@
   }
 }
 
+.nav-wrapper {
+  color: $cool-orange;
+  a {
+    color: $cool-orange;
+  }
+}
+
 .home-nav-wrapper {
   z-index: 9;
 

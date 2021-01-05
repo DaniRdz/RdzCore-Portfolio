@@ -3,6 +3,12 @@ import React, { Component } from "react";
 import backgroundPicture from "../../static/assets/images/backgrounds/home.jpg";
 
 export default class Home extends Component {
+  componentDidMount() {
+    this.props.changeNavbar(true);
+  }
+  componentWillUnmount() {
+    this.props.changeNavbar(false);
+  }
   render() {
     return (
       <div className="home">

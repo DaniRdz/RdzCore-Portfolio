@@ -6,7 +6,9 @@ import Logo from "./logo";
 export default class Navigation extends Component {
   render() {
     return (
-      <div className="nav-wrapper home-nav-wrapper">
+      <div
+        className={`nav-wrapper ${this.props.isHome ? "home-nav-wrapper" : ""}`}
+      >
         <div className="left-column">
           <Logo />
         </div>
@@ -18,10 +20,10 @@ export default class Navigation extends Component {
             <NavLink to="/about-me">About me</NavLink>
           </div>
           <div className="link">
-            <NavLink to="/about-me">Portfolio</NavLink>
+            <NavLink to="/portfolio">Portfolio</NavLink>
           </div>
           <div className="link">
-            <NavLink to="/about-me">Blog</NavLink>
+            <NavLink to="/blog">Blog</NavLink>
           </div>
         </div>
       </div>
