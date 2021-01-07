@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import backgroundPicture from "../../static/assets/images/backgrounds/home.jpg";
+import backgroundPicture from "../../../static/assets/images/backgrounds/home.jpg";
 
 export default class Home extends Component {
   componentDidMount() {

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Home from "./home";
-import About from "./about-me";
-import Navigation from "./navigation";
+import Home from "./pages/home";
+import About from "./pages/about-me";
+import Navigation from "./navigation/navigation";
 
 export default class App extends Component {
   constructor(props) {
