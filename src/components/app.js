@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Home from "./pages/home";
 import About from "./pages/about-me";
+import Portfolio from "./pages/portfolio";
 import Auth from "./pages/auth";
 import Navigation from "./navigation/navigation";
 
@@ -34,6 +35,7 @@ export default class App extends Component {
               )}
             />
             <Route exact path="/about-me" component={About} />
+            <Route exact path="/portfolio" component={Portfolio} />
             <Route exact path="/auth" component={Auth} />
           </Switch>
         </Router>
