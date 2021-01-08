@@ -69,6 +69,7 @@
     width: 100%;
   }
   .img-text-wrapper {
+    z-index: 9;
     justify-self: center;
     align-self: center;
 
@@ -77,11 +78,24 @@
     .logo-wrapper img {
       width: 50%;
       padding-left: 25%;
+      margin-bottom: 20px;
     }
 
     .text-decription {
       justify-self: center;
       color: transparent;
+      font-weight: 600;
+
+      transition: 1s ease-in-out;
     }
   }
+  &:hover .text-decription {
+    color: $cool-orange;
+    font-weight: 600;
+  }
+}
+
+.img-blur {
+  transition: 1s;
+  filter: brightness(40%);
 }

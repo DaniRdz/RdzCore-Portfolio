@@ -3,13 +3,36 @@ import React, { Component } from "react";
 export default class PortfolioItem extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      portfolioItemClass: "",
+    };
+  }
+
+  handleMouseEnter() {
+    this.setState({
+      portfolioItemClass: "img-blur",
+    });
+  }
+  handleMouseLeave() {
+    this.setState({
+      portfolioItemClass: "",
+    });
   }
   render() {
     const { id, description, thumb_image_url, logo_url } = this.props;
     return (
-      <div className="portfolio-item">
+      <div
+        className="portfolio-item"
+        onMouseEnter={() => {
+          this.handleMouseEnter();
+        }}
+        onMouseLeave={() => {
+          this.handleMouseLeave();
+        }}
+      >
         <div
-          className="item-img"
+          className={`item-img ${this.state.portfolioItemClass}`}
           style={{ backgroundImage: `url(${thumb_image_url})` }}
         />
         <div className="img-text-wrapper">
