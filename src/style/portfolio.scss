@@ -1,0 +1,42 @@
+.portfolio {
+  grid-row: content-s/content-e;
+  height: calc(100vh - 120px);
+
+  padding: 0rem 4rem 0rem 4rem;
+}
+
+.portfolio {
+  display: grid;
+  grid-template-rows: 70px 6fr 1fr;
+
+  .page-title {
+    font-weight: 600;
+    font-size: 1.75rem;
+  }
+  .btn {
+    display: grid;
+    .media-btn {
+      width: 200px;
+      height: 30px;
+      border-radius: 50px;
+      justify-self: center;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      text-decoration: none;
+      color: $cool-orange;
+      font-weight: 600;
+
+      border: solid 2px $cool-orange;
+    }
+  }
+}
+
+.portfolio-container {
+  padding: 0rem 2rem 0rem 2rem;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+}
