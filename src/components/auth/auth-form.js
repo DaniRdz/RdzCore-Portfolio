@@ -25,7 +25,7 @@ export default class AuthForm extends Component {
   render() {
     return (
       <div className="auth-form">
-        <h1 className="grettigs-msg">Login To Access Your Dashboard</h1>
+        <div className="grettigs-msg">Login To Access Your Dashboard</div>
 
         <form onSubmit={this.handleSubmit} className="auth-form-wrapper">
           <input
