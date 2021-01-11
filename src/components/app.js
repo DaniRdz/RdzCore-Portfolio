@@ -62,7 +62,10 @@ export default class App extends Component {
     return (
       <div className="container">
         <Router>
-          <Navigation isHome={this.state.isSpecialNavbar} />
+          <Navigation
+            isHome={this.state.isSpecialNavbar}
+            loggedInStatus={this.state.loggedInStatus}
+          />
           <h1>{this.state.loggedInStatus}</h1>
           <Switch>
             <Route

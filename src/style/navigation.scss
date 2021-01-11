@@ -2,7 +2,7 @@
   grid-row: nav-bar-s/nav-bar-e;
   grid-column: s/e;
   display: grid;
-  grid-template-columns: [logo-s] 1fr [logo-e] 1fr [links-s] 1fr [links-e];
+  grid-template-columns: [logo-s] 1fr [logo-e links-s] 1fr [links-e];
 
   padding: 0rem 4rem 0rem 4rem;
 }

@@ -25,6 +25,11 @@ export default class Navigation extends Component {
           <div className="link">
             <NavLink to="/blog">Blog</NavLink>
           </div>
+          {this.props.loggedInStatus === "LOGGED_IN" ? (
+            <div className="link">
+              <NavLink to="/portfolio-manager">Portfolio Manager</NavLink>
+            </div>
+          ) : null}
         </div>
       </div>
     );
