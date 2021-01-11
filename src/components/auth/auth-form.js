@@ -31,15 +31,17 @@ export default class AuthForm extends Component {
       )
       .then((response) => {
         if (response.data.status === "created") {
-          console.log("you are loggin");
+          this.props.handleSuccesfulAuth();
         } else {
           this.setState({
             errText: "Wrong email or password",
           });
+          this.props.handleUnSuccesfulAuth();
         }
       })
       .catch((err) => {
         console.log("auth eror", err);
+        this.props.handleUnSuccesfulAuth();
       });
     event.preventDefault();
   }

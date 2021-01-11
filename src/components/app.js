@@ -13,12 +13,25 @@ export default class App extends Component {
 
     this.state = {
       isSpecialNavbar: false,
+      loggedInStatus: "NOT_LOGGED_IN",
     };
     this.handleChageNavbar = this.handleChageNavbar.bind(this);
+    this.handleSuccesfulLogin = this.handleSuccesfulLogin.bind(this);
+    this.handleUnsuccesfulLogin = this.handleUnsuccesfulLogin.bind(this);
   }
   handleChageNavbar(state) {
     this.setState({
       isSpecialNavbar: state,
+    });
+  }
+  handleSuccesfulLogin() {
+    this.setState({
+      loggedInStatus: "LOGGED_IN",
+    });
+  }
+  handleUnsuccesfulLogin() {
+    this.setState({
+      loggedInStatus: "NOT_LOGGED_IN",
     });
   }
   render() {
@@ -26,6 +39,7 @@ export default class App extends Component {
       <div className="container">
         <Router>
           <Navigation isHome={this.state.isSpecialNavbar} />
+          <h1>{this.state.loggedInStatus}</h1>
           <Switch>
             <Route
               exact
@@ -34,9 +48,19 @@ export default class App extends Component {
                 <Home {...props} changeNavbar={this.handleChageNavbar} />
               )}
             />
+            <Route
+              exact
+              path="/auth"
+              render={(props) => (
+                <Auth
+                  {...props}
+                  handleSuccesfulLogin={this.handleSuccesfulLogin}
+                  handleUnsuccesfulLogin={this.handleUnsuccesfulLogin}
+                />
+              )}
+            />
             <Route exact path="/about-me" component={About} />
             <Route exact path="/portfolio" component={Portfolio} />
-            <Route exact path="/auth" component={Auth} />
           </Switch>
         </Router>
       </div>
