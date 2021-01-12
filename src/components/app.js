@@ -6,7 +6,9 @@ import Home from "./pages/home";
 import About from "./pages/about-me";
 import Portfolio from "./pages/portfolio";
 import Auth from "./pages/auth";
+import NoMatch from "./pages/no-match";
 import Navigation from "./navigation/navigation";
+import PortfolioManager from "./pages/portfolio-manager";
 
 export default class App extends Component {
   constructor(props) {
@@ -58,6 +60,16 @@ export default class App extends Component {
   componentDidMount() {
     this.checkLoginStatus();
   }
+  authorizedPage() {
+    return [
+      <Route
+        key="portfolio-manager"
+        exact
+        path="/portfolio-manager"
+        component={PortfolioManager}
+      />,
+    ];
+  }
   render() {
     return (
       <div className="container">
@@ -86,8 +98,12 @@ export default class App extends Component {
                 />
               )}
             />
+            {this.state.loggedInStatus === "LOGGED_IN"
+              ? this.authorizedPage()
+              : null}
             <Route exact path="/about-me" component={About} />
             <Route exact path="/portfolio" component={Portfolio} />
+            <Route component={NoMatch} />
           </Switch>
         </Router>
       </div>
