@@ -21,6 +21,7 @@ export default class App extends Component {
     this.handleChageNavbar = this.handleChageNavbar.bind(this);
     this.handleSuccesfulLogin = this.handleSuccesfulLogin.bind(this);
     this.handleUnsuccesfulLogin = this.handleUnsuccesfulLogin.bind(this);
+    this.handleSuccesfulLogout = this.handleSuccesfulLogout.bind(this);
   }
   handleChageNavbar(state) {
     this.setState({
@@ -33,6 +34,11 @@ export default class App extends Component {
     });
   }
   handleUnsuccesfulLogin() {
+    this.setState({
+      loggedInStatus: "NOT_LOGGED_IN",
+    });
+  }
+  handleSuccesfulLogout() {
     this.setState({
       loggedInStatus: "NOT_LOGGED_IN",
     });
@@ -77,8 +83,8 @@ export default class App extends Component {
           <Navigation
             isHome={this.state.isSpecialNavbar}
             loggedInStatus={this.state.loggedInStatus}
+            handleSuccesfulLogout={this.handleSuccesfulLogout}
           />
-          <h1>{this.state.loggedInStatus}</h1>
           <Switch>
             <Route
               exact

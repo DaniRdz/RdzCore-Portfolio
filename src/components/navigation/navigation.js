@@ -1,9 +1,30 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
+import axios from "axios";
 
 import Logo from "../logo/logo";
 
-export default class Navigation extends Component {
+class Navigation extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleSignOut = this.handleSignOut.bind(this);
+  }
+
+  handleSignOut() {
+    axios
+      .delete("https://api.devcamp.space/logout", { withCredentials: true })
+      .then((response) => {
+        if (response.status === 200) {
+          this.props.handleSuccesfulLogout();
+          this.props.history.push("/");
+          return response.data;
+        }
+      })
+      .catch((err) => {
+        console.log("handle SingOut err", err);
+      });
+  }
   render() {
     return (
       <div
@@ -26,8 +47,11 @@ export default class Navigation extends Component {
             <NavLink to="/blog">Blog</NavLink>
           </div>
           {this.props.loggedInStatus === "LOGGED_IN" ? (
-            <div className="link">
-              <NavLink to="/portfolio-manager">Portfolio Manager</NavLink>
+            <div className="special-links">
+              <div className="link">
+                <NavLink to="/portfolio-manager">Portfolio Manager</NavLink>
+              </div>
+              <a onClick={() => this.handleSignOut()}>SigOut</a>
             </div>
           ) : null}
         </div>
@@ -35,3 +59,5 @@ export default class Navigation extends Component {
     );
   }
 }
+
+export default withRouter(Navigation);
