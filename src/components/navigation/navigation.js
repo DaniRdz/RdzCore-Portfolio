@@ -35,23 +35,35 @@ class Navigation extends Component {
         </div>
         <div className="right-column">
           <div className="link">
-            <NavLink to="/">Home</NavLink>
+            <NavLink exact to="/" activeClassName="link-active">
+              Home
+            </NavLink>
           </div>
           <div className="link">
-            <NavLink to="/about-me">About me</NavLink>
+            <NavLink to="/about-me" activeClassName="link-active">
+              About me
+            </NavLink>
           </div>
           <div className="link">
-            <NavLink to="/portfolio">Portfolio</NavLink>
+            <NavLink to="/portfolio" activeClassName="link-active">
+              Portfolio
+            </NavLink>
           </div>
           <div className="link">
-            <NavLink to="/blog">Blog</NavLink>
+            <NavLink to="/blog" activeClassName="link-active">
+              Blog
+            </NavLink>
           </div>
           {this.props.loggedInStatus === "LOGGED_IN" ? (
             <div className="special-links">
               <div className="link">
-                <NavLink to="/portfolio-manager">Portfolio Manager</NavLink>
+                <NavLink to="/portfolio-manager" activeClassName="link-active">
+                  Portfolio Manager
+                </NavLink>
               </div>
-              <a onClick={() => this.handleSignOut()}>SigOut</a>
+              <div className="sign-out" onClick={() => this.handleSignOut()}>
+                <i className="fas fa-sign-out-alt"></i>
+              </div>
             </div>
           ) : null}
         </div>

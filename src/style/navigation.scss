@@ -28,8 +28,14 @@
 
 .nav-wrapper {
   color: $cool-orange;
+  transition: 0.5s ease-in-out;
+  border-bottom: 3px solid transparent;
+
   a {
     color: $cool-orange;
+    &:hover {
+      border-bottom: 3px solid $cool-orange;
+    }
   }
 }
 
@@ -37,7 +43,31 @@
   z-index: 9;
 
   color: $soft-white;
+  transition: 0.5s ease-in-out;
+  border-bottom: 3px solid transparent;
+
   a {
     color: $soft-white;
+
+    &:hover {
+      border-bottom: 3px solid $soft-white;
+    }
   }
+
+  .link-active {
+    border-bottom: 3px solid $soft-white;
+  }
+}
+
+.special-links {
+  display: flex;
+
+  .sign-out {
+    margin-left: 1rem;
+    cursor: pointer;
+  }
+}
+
+.link-active {
+  border-bottom: 3px solid $cool-orange;
 }
