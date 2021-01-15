@@ -12,23 +12,26 @@ export default class PortfolioManager extends Component {
     };
 
     this.handleFormSubmissionError = this.handleFormSubmissionError.bind(this);
-    this.handleSeccessfulFormSubmission = this.handleSeccessfulFormSubmission.bind(
+    this.handleSuccessfulFormSubmission = this.handleSuccessfulFormSubmission.bind(
       this
     );
   }
-  handleSeccessfulFormSubmission(portfolioItem) {
-    //TODO
-    //Upadete portfolioItem
-    //Added new portfolioItem
+  handleSuccessfulFormSubmission(portfolioItem) {
+    this.setState({
+      portfolioItems: [portfolioItem].concat(this.state.portfolioItems),
+    });
   }
   handleFormSubmissionError(error) {
     console.log("handleFormSubmissionError", error);
   }
   getPortfolioItems() {
     axios
-      .get("https://rdzcore.devcamp.space/portfolio/portfolio_items", {
-        withCredentials: true,
-      })
+      .get(
+        "https://rdzcore.devcamp.space/portfolio/portfolio_items?order_by=created_at&direction=desc",
+        {
+          withCredentials: true,
+        }
+      )
       .then((response) => {
         this.setState({
           portfolioItems: [...response.data.portfolio_items],
@@ -47,7 +50,7 @@ export default class PortfolioManager extends Component {
       <div className="portfolio-manager">
         <div className="right-column">
           <PortfolioForm
-            handleSeccessfulFormSubmission={this.handleSeccessfulFormSubmission}
+            handleSuccessfulFormSubmission={this.handleSuccessfulFormSubmission}
             handleFormSubmissionError={this.handleFormSubmissionError}
           />
         </div>
