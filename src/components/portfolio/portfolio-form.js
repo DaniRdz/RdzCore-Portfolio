@@ -23,6 +23,28 @@ export default class PortfolioForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.componentConfig = this.componentConfig.bind(this);
     this.djsConfig = this.djsConfig.bind(this);
+    this.handleThumbDrop = this.handleThumbDrop.bind(this);
+    this.handleLogoDrop = this.handleLogoDrop.bind(this);
+    this.handleBannerDrop = this.handleBannerDrop.bind(this);
+
+    this.thumbRef = React.createRef();
+    this.logoRef = React.createRef();
+    this.bannerRef = React.createRef();
+  }
+  handleBannerDrop() {
+    return {
+      addedfile: (file) => this.setState({ banner_image: file }),
+    };
+  }
+  handleLogoDrop() {
+    return {
+      addedfile: (file) => this.setState({ logo: file }),
+    };
+  }
+  handleThumbDrop() {
+    return {
+      addedfile: (file) => this.setState({ thumb_image: file }),
+    };
   }
   componentConfig() {
     return {
@@ -45,6 +67,16 @@ export default class PortfolioForm extends Component {
     formData.append("portfolio_item[url]", this.state.url);
     formData.append("portfolio_item[position]", this.state.position);
 
+    if (this.state.thumb_image) {
+      formData.append("portfolio_item[thumb_image]", this.state.thumb_image);
+    }
+    if (this.state.logo) {
+      formData.append("portfolio_item[logo]", this.state.logo);
+    }
+    if (this.state.banner_image) {
+      formData.append("portfolio_item[banner_image]", this.state.banner_image);
+    }
+
     return formData;
   }
   handleChange(event) {
@@ -61,6 +93,21 @@ export default class PortfolioForm extends Component {
       )
       .then((response) => {
         this.props.handleSuccessfulFormSubmission(response.data.portfolio_item);
+
+        this.setState({
+          name: "",
+          description: "",
+          url: "",
+          category: "eCommerce",
+          position: "",
+          thumb_image: "",
+          banner_image: "",
+          logo: "",
+        });
+
+        [this.thumbRef, this.logoRef, this.bannerRef].forEach((ref) => {
+          ref.current.dropzone.removeAllFiles();
+        });
       })
       .catch((err) => {
         console.log("portfolio manager handleSubmit error", err);
@@ -118,8 +165,22 @@ export default class PortfolioForm extends Component {
           </div>
           <div className="image-uploaders">
             <DropzoneComponent
+              ref={this.thumbRef}
               config={this.componentConfig()}
               djsConfig={this.djsConfig()}
+              eventHandlers={this.handleThumbDrop()}
+            ></DropzoneComponent>
+            <DropzoneComponent
+              ref={this.logoRef}
+              config={this.componentConfig()}
+              djsConfig={this.djsConfig()}
+              eventHandlers={this.handleLogoDrop()}
+            ></DropzoneComponent>
+            <DropzoneComponent
+              ref={this.bannerRef}
+              config={this.componentConfig()}
+              djsConfig={this.djsConfig()}
+              eventHandlers={this.handleBannerDrop()}
             ></DropzoneComponent>
           </div>
           <div>
