@@ -9,12 +9,20 @@ export default function (props) {
         </div>
         <div className="text-content">
           <div className="title">{portfolioItem.name}</div>
-          <a
-            className="delete-icon"
-            onClick={() => props.handleDeleteClick(portfolioItem)}
-          >
-            <i className="fas fa-trash-alt"></i>
-          </a>
+          <div className="actions">
+            <a
+              className="action-icon"
+              onClick={() => props.handleDeleteClick(portfolioItem)}
+            >
+              <i className="fas fa-trash-alt"></i>
+            </a>
+            <a
+              className="action-icon"
+              onClick={() => props.handleEditClick(portfolioItem)}
+            >
+              <i className="far fa-edit"></i>
+            </a>
+          </div>
         </div>
       </div>
     );
