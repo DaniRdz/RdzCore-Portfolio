@@ -189,7 +189,7 @@ export default class PortfolioForm extends Component {
           </DropzoneComponent>
         </div>
         <div>
-          <button>SAVE</button>
+          <button className="btn">SAVE</button>
         </div>
       </form>
     );

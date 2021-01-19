@@ -1,3 +1,23 @@
+@mixin base-btn {
+  cursor: pointer;
+  height: 42px;
+  width: 150px;
+  border-radius: 50px;
+  font-size: 1em;
+  font-weight: 500;
+  border: 1px solid transparent;
+  transition: all 0.5s ease-in-out;
+  background: $cool-orange;
+  color: $soft-white;
+
+  &:active,
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    background-color: $cool-darkorange;
+  }
+}
 @mixin input-element {
   input {
     font-family: "montserrat";
