@@ -1,0 +1,20 @@
+textarea {
+  font-family: "montserrat";
+  border: 1px solid $cool-orange;
+  background-color: transparent;
+  font-size: 1rem;
+  height: 100px;
+  outline: none;
+  padding: 10px;
+}
+
+.select-element {
+  border: 1px solid #ccc;
+  font-family: "montserrat";
+  font-size: 0.8rem;
+  width: 100%;
+  border-radius: 3px;
+  overflow: hidden;
+  background-color: transparent;
+  outline: none;
+}

@@ -118,7 +118,7 @@ export default class PortfolioForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit} className="portfolio-form-wrapper">
-        <div>
+        <div className="two-columns">
           <input
             type="text"
             name="name"
@@ -134,7 +134,7 @@ export default class PortfolioForm extends Component {
             onChange={this.handleChange}
           />
         </div>
-        <div>
+        <div className="two-columns">
           <input
             type="text"
             name="position"
@@ -146,13 +146,14 @@ export default class PortfolioForm extends Component {
             name="category"
             value={this.state.category}
             onChange={this.handleChange}
+            className="select-element"
           >
             <option value="eCommerce">eCommerce</option>
             <option value="Scheduling">Scheduling</option>
             <option value="Enterprise">Enterprise</option>
           </select>
         </div>
-        <div>
+        <div className="one-column">
           <textarea
             type="text"
             name="description"
@@ -167,19 +168,25 @@ export default class PortfolioForm extends Component {
             config={this.componentConfig()}
             djsConfig={this.djsConfig()}
             eventHandlers={this.handleThumbDrop()}
-          ></DropzoneComponent>
+          >
+            <div className="dz-message">Thumbnail</div>
+          </DropzoneComponent>
           <DropzoneComponent
             ref={this.logoRef}
             config={this.componentConfig()}
             djsConfig={this.djsConfig()}
             eventHandlers={this.handleLogoDrop()}
-          ></DropzoneComponent>
+          >
+            <div className="dz-message">Logo</div>
+          </DropzoneComponent>
           <DropzoneComponent
             ref={this.bannerRef}
             config={this.componentConfig()}
             djsConfig={this.djsConfig()}
             eventHandlers={this.handleBannerDrop()}
-          ></DropzoneComponent>
+          >
+            <div className="dz-message">Banner</div>
+          </DropzoneComponent>
         </div>
         <div>
           <button>SAVE</button>
