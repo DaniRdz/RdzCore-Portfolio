@@ -4,8 +4,24 @@
     .portfolio-thumb-img img {
       width: 100%;
     }
-    .title {
-      color: $soft-white;
+    .text-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .title {
+        font-size: 1.5rem;
+        color: $soft-white;
+      }
+      .delete-icon {
+        cursor: pointer;
+        color: $soft-white;
+        font-size: 1.5rem;
+        transition: 0.5s ease-in-out;
+
+        &:hover {
+          color: $warning;
+        }
+      }
     }
   }
 }
