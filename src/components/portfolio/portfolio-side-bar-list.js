@@ -10,6 +10,7 @@ export default function (props) {
         <div>
           <h1 className="title">{portfolioItem.name}</h1>
           <h2>{portfolioItem.id}</h2>
+          <a onClick={() => props.handleDeleteClick(portfolioItem)}>Delete</a>
         </div>
       </div>
     );
