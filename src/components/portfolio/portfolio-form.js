@@ -18,6 +18,9 @@ export default class PortfolioForm extends Component {
       thumb_image: "",
       banner_image: "",
       logo: "",
+      editMode: false,
+      apiUrl: "https://rdzcore.devcamp.space/portfolio/portfolio_items",
+      apiAction: "post",
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -85,12 +88,12 @@ export default class PortfolioForm extends Component {
     });
   }
   handleSubmit(event) {
-    axios
-      .post(
-        "https://rdzcore.devcamp.space/portfolio/portfolio_items",
-        this.buildForm(),
-        { withCredentials: true }
-      )
+    axios({
+      method: this.state.apiAction,
+      url: this.state.apiUrl,
+      data: this.buildForm(),
+      withCredentials: true,
+    })
       .then((response) => {
         this.props.handleSuccessfulFormSubmission(response.data.portfolio_item);
 
@@ -114,6 +117,36 @@ export default class PortfolioForm extends Component {
       });
 
     event.preventDefault();
+  }
+
+  componentDidUpdate() {
+    if (Object.keys(this.props.portfolioToEdit).length > 0) {
+      const {
+        id,
+        name,
+        description,
+        category,
+        url,
+        position,
+        thumb_image_url,
+        banner_image_url,
+        logo_url,
+      } = this.props.portfolioToEdit;
+
+      this.props.clearPortfolioToEdit();
+
+      this.setState({
+        id: id,
+        name: name || "",
+        description: description || "",
+        url: url || "",
+        category: category || "eCommerce",
+        position: position || "",
+        editMode: true,
+        apiUrl: `https://rdzcore.devcamp.space/portfolio/portfolio_items/${id}`,
+        apiAction: "patch",
+      });
+    }
   }
   render() {
     return (

@@ -18,6 +18,12 @@ export default class PortfolioManager extends Component {
     );
     this.handleDeleteClick = this.handleDeleteClick.bind(this);
     this.handleEditClick = this.handleEditClick.bind(this);
+    this.clearPortfolioToEdit = this.clearPortfolioToEdit.bind(this);
+  }
+  clearPortfolioToEdit() {
+    this.setState({
+      portfolioToEdit: {},
+    });
   }
   handleEditClick(portfolioItem) {
     this.setState({
@@ -78,6 +84,8 @@ export default class PortfolioManager extends Component {
           <PortfolioForm
             handleSuccessfulFormSubmission={this.handleSuccessfulFormSubmission}
             handleFormSubmissionError={this.handleFormSubmissionError}
+            clearPortfolioToEdit={this.clearPortfolioToEdit}
+            portfolioToEdit={this.state.portfolioToEdit}
           />
         </div>
         <div className="left-column">

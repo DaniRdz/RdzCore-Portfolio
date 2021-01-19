@@ -12,15 +12,15 @@ export default function (props) {
           <div className="actions">
             <a
               className="action-icon"
-              onClick={() => props.handleDeleteClick(portfolioItem)}
-            >
-              <i className="fas fa-trash-alt"></i>
-            </a>
-            <a
-              className="action-icon"
               onClick={() => props.handleEditClick(portfolioItem)}
             >
               <i className="far fa-edit"></i>
+            </a>
+            <a
+              className="action-icon"
+              onClick={() => props.handleDeleteClick(portfolioItem)}
+            >
+              <i className="fas fa-trash-alt"></i>
             </a>
           </div>
         </div>
