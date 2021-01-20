@@ -1,7 +1,8 @@
 .portfolio-manager {
   display: grid;
   grid-template-columns: 3fr 1fr;
-
+  grid-row: content-s/content-e;
+  height: calc(100vh - 120px);
   .left-column {
     background-color: $offgray;
   }
