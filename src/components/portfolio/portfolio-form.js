@@ -35,8 +35,21 @@ export default class PortfolioForm extends Component {
     this.logoRef = React.createRef();
     this.bannerRef = React.createRef();
   }
-  deleteImage(image) {
-    console.log(image);
+  deleteImage(imageType) {
+    axios
+      .delete(
+        `https://api.devcamp.space/portfolio/delete-portfolio-image/${this.state.id}?image_type=${imageType}`,
+        { withCredentials: true }
+      )
+      .then((response) => {
+        this.setState({
+          [`${imageType}_url`]: "",
+        });
+        return response.data;
+      })
+      .catch((err) => {
+        console.log("deleteImage Eror", err);
+      });
   }
   handleBannerDrop() {
     return {
