@@ -29,10 +29,14 @@ export default class PortfolioForm extends Component {
     this.handleThumbDrop = this.handleThumbDrop.bind(this);
     this.handleLogoDrop = this.handleLogoDrop.bind(this);
     this.handleBannerDrop = this.handleBannerDrop.bind(this);
+    this.deleteImage = this.deleteImage.bind(this);
 
     this.thumbRef = React.createRef();
     this.logoRef = React.createRef();
     this.bannerRef = React.createRef();
+  }
+  deleteImage(image) {
+    console.log(image);
   }
   handleBannerDrop() {
     return {
@@ -150,6 +154,9 @@ export default class PortfolioForm extends Component {
         category: category || "eCommerce",
         position: position || "",
         editMode: true,
+        thumb_image_url: thumb_image_url || "",
+        banner_image_url: banner_image_url || "",
+        logo_url: logo_url || "",
         apiUrl: `https://rdzcore.devcamp.space/portfolio/portfolio_items/${id}`,
         apiAction: "patch",
       });
@@ -203,30 +210,62 @@ export default class PortfolioForm extends Component {
           />
         </div>
         <div className="image-uploaders">
-          <DropzoneComponent
-            ref={this.thumbRef}
-            config={this.componentConfig()}
-            djsConfig={this.djsConfig()}
-            eventHandlers={this.handleThumbDrop()}
-          >
-            <div className="dz-message">Thumbnail</div>
-          </DropzoneComponent>
-          <DropzoneComponent
-            ref={this.logoRef}
-            config={this.componentConfig()}
-            djsConfig={this.djsConfig()}
-            eventHandlers={this.handleLogoDrop()}
-          >
-            <div className="dz-message">Logo</div>
-          </DropzoneComponent>
-          <DropzoneComponent
-            ref={this.bannerRef}
-            config={this.componentConfig()}
-            djsConfig={this.djsConfig()}
-            eventHandlers={this.handleBannerDrop()}
-          >
-            <div className="dz-message">Banner</div>
-          </DropzoneComponent>
+          {this.state.thumb_image_url && this.state.editMode ? (
+            <div className="portfolio-manager-image-wrapper">
+              <img src={this.state.thumb_image_url} />
+              <div className="image-removal-link">
+                <a onClick={() => this.deleteImage("thumb_image")}>
+                  Remove File
+                </a>
+              </div>
+            </div>
+          ) : (
+            <DropzoneComponent
+              ref={this.thumbRef}
+              config={this.componentConfig()}
+              djsConfig={this.djsConfig()}
+              eventHandlers={this.handleThumbDrop()}
+            >
+              <div className="dz-message">Thumbnail</div>
+            </DropzoneComponent>
+          )}
+          {this.state.logo_url && this.state.editMode ? (
+            <div className="portfolio-manager-image-wrapper">
+              <img src={this.state.logo_url} />
+              <div className="image-removal-link">
+                <a onClick={() => this.deleteImage("logo")}>Remove File</a>
+              </div>
+            </div>
+          ) : (
+            <DropzoneComponent
+              ref={this.logoRef}
+              config={this.componentConfig()}
+              djsConfig={this.djsConfig()}
+              eventHandlers={this.handleLogoDrop()}
+            >
+              <div className="dz-message">Logo</div>
+            </DropzoneComponent>
+          )}
+
+          {this.state.banner_image_url && this.state.editMode ? (
+            <div className="portfolio-manager-image-wrapper">
+              <img src={this.state.banner_image_url} />
+              <div className="image-removal-link">
+                <a onClick={() => this.deleteImage("banner_image")}>
+                  Remove File
+                </a>
+              </div>
+            </div>
+          ) : (
+            <DropzoneComponent
+              ref={this.bannerRef}
+              config={this.componentConfig()}
+              djsConfig={this.djsConfig()}
+              eventHandlers={this.handleBannerDrop()}
+            >
+              <div className="dz-message">Banner</div>
+            </DropzoneComponent>
+          )}
         </div>
         <div>
           <button className="btn">SAVE</button>
