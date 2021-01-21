@@ -14,7 +14,9 @@ export default class Blog extends Component {
   }
   getBlogItems() {
     axios
-      .get("https://rdzcore.devcamp.space/portfolio/portfolio_blogs")
+      .get("https://rdzcore.devcamp.space/portfolio/portfolio_blogs", {
+        withCredentials: true,
+      })
       .then((response) => {
         this.setState({
           blogItems: response.data.portfolio_blogs,
