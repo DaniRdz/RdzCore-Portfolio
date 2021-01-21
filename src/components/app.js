@@ -5,6 +5,7 @@ import axios from "axios";
 import Home from "./pages/home";
 import About from "./pages/about-me";
 import Portfolio from "./pages/portfolio";
+import Blog from "./pages/blog";
 import Auth from "./pages/auth";
 import NoMatch from "./pages/no-match";
 import Navigation from "./navigation/navigation";
@@ -107,6 +108,7 @@ export default class App extends Component {
             {this.state.loggedInStatus === "LOGGED_IN"
               ? this.authorizedPage()
               : null}
+            <Route exact path="/blog" component={Blog} />
             <Route exact path="/about-me" component={About} />
             <Route exact path="/portfolio" component={Portfolio} />
             <Route component={NoMatch} />
