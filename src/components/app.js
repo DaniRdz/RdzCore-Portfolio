@@ -110,7 +110,7 @@ export default class App extends Component {
               ? this.authorizedPage()
               : null}
             <Route exact path="/blog" component={Blog} />
-            <Route exact path="/blog/:slug" component={BlogDetail} />
+            <Route exact path="/b/:slug" component={BlogDetail} />
             <Route exact path="/about-me" component={About} />
             <Route exact path="/portfolio" component={Portfolio} />
             <Route component={NoMatch} />
