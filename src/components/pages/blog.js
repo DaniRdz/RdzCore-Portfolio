@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+import BlogItem from "../blog/blog-item";
+
 export default class Blog extends Component {
   constructor() {
     super();
@@ -27,7 +29,7 @@ export default class Blog extends Component {
   }
   render() {
     const blogItems = this.state.blogItems.map((blogItem) => {
-      return <h1>{blogItem.title}</h1>;
+      return <BlogItem key={blogItem.id} blogItem={blogItem} />;
     });
     return <div className="blog">{blogItems}</div>;
   }
