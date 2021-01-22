@@ -33,6 +33,10 @@ export default class Blog extends Component {
     const blogItems = this.state.blogItems.map((blogItem) => {
       return <BlogItem key={blogItem.id} blogItem={blogItem} />;
     });
-    return <div className="blog">{blogItems}</div>;
+    return (
+      <div className="blog-container">
+        <div className="content-container">{blogItems}</div>
+      </div>
+    );
   }
 }

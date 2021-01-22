@@ -1,0 +1,30 @@
+.blog-container {
+  display: grid;
+  justify-content: center;
+
+  .content-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 800px;
+
+    a {
+      text-decoration: none;
+      color: $cool-orange;
+      transition: 0.5s ease-in-out;
+
+      &:hover {
+        color: $cool-darkorange;
+      }
+    }
+
+    .featured-image-wrapper {
+      img {
+        margin: 15px 0px;
+        width: 100%;
+        height: 350px;
+        border-radius: 5px;
+        object-fit: cover;
+      }
+    }
+  }
+}
