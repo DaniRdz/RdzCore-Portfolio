@@ -1,6 +1,7 @@
 .blog-container {
   display: grid;
   justify-content: center;
+  margin-bottom: 30px;
 
   .content-container {
     display: grid;
@@ -27,4 +28,10 @@
       }
     }
   }
+}
+
+.content-loader {
+  font-size: 4rem;
+  color: $cool-orange;
+  justify-self: center;
 }
