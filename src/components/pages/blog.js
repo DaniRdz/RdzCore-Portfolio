@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 
 import BlogItem from "../blog/blog-item";
+import BlogModal from "../modals/blog-modal";
 
 export default class Blog extends Component {
   constructor() {
@@ -11,11 +12,25 @@ export default class Blog extends Component {
       currentPage: 0,
       totalCount: 0,
       isLoding: true,
+      modalIsOpen: false,
     };
 
     this.getBlogItems = this.getBlogItems.bind(this);
     this.onScroll = this.onScroll.bind(this);
+    this.handleNewBlogCLick = this.handleNewBlogCLick.bind(this);
+    this.handleModalClose = this.handleModalClose.bind(this);
+
     window.addEventListener("scroll", this.onScroll, false);
+  }
+  handleModalClose() {
+    this.setState({
+      modalIsOpen: false,
+    });
+  }
+  handleNewBlogCLick() {
+    this.setState({
+      modalIsOpen: true,
+    });
   }
   onScroll() {
     if (
@@ -47,7 +62,6 @@ export default class Blog extends Component {
         }
       )
       .then((response) => {
-        console.log("response", response.data);
         this.setState({
           blogItems: this.state.blogItems.concat(response.data.portfolio_blogs),
           totalCount: response.data.meta.total_records,
@@ -70,6 +84,13 @@ export default class Blog extends Component {
     });
     return (
       <div className="blog-container">
+        <BlogModal
+          modalIsOpen={this.state.modalIsOpen}
+          handleModalClose={this.handleModalClose}
+        />
+        <div className="new-blog-link">
+          <a onClick={this.handleNewBlogCLick}>Open modal</a>
+        </div>
         <div className="content-container">{blogItems}</div>
         {this.state.isLoding ? (
           <div className="content-loader">
