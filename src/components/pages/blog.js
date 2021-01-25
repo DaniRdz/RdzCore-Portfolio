@@ -12,24 +12,34 @@ export default class Blog extends Component {
       currentPage: 0,
       totalCount: 0,
       isLoding: true,
-      modalIsOpen: false,
+      blogModalIsOpen: false,
     };
 
     this.getBlogItems = this.getBlogItems.bind(this);
     this.onScroll = this.onScroll.bind(this);
     this.handleNewBlogCLick = this.handleNewBlogCLick.bind(this);
     this.handleModalClose = this.handleModalClose.bind(this);
+    this.handleSuccessfullNewBlogSubmission = this.handleSuccessfullNewBlogSubmission.bind(
+      this
+    );
 
     window.addEventListener("scroll", this.onScroll, false);
   }
+  handleSuccessfullNewBlogSubmission(blog) {
+    this.setState({
+      blogModalIsOpen: false,
+      blogItems: [blog].concat(this.state.blogItems),
+    });
+  }
+
   handleModalClose() {
     this.setState({
-      modalIsOpen: false,
+      blogModalIsOpen: false,
     });
   }
   handleNewBlogCLick() {
     this.setState({
-      modalIsOpen: true,
+      blogModalIsOpen: true,
     });
   }
   onScroll() {
@@ -85,8 +95,11 @@ export default class Blog extends Component {
     return (
       <div className="blog-container">
         <BlogModal
-          modalIsOpen={this.state.modalIsOpen}
+          modalIsOpen={this.state.blogModalIsOpen}
           handleModalClose={this.handleModalClose}
+          handleSuccessfullNewBlogSubmission={
+            this.handleSuccessfullNewBlogSubmission
+          }
         />
         <div className="new-blog-link">
           <a onClick={this.handleNewBlogCLick}>Open modal</a>
