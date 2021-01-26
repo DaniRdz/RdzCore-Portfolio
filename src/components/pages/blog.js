@@ -102,7 +102,9 @@ export default class Blog extends Component {
           }
         />
         <div className="new-blog-link">
-          <a onClick={this.handleNewBlogCLick}>Open modal</a>
+          <a onClick={this.handleNewBlogCLick}>
+            <i className="fas fa-feather-alt"></i>
+          </a>
         </div>
         <div className="content-container">{blogItems}</div>
         {this.state.isLoding ? (

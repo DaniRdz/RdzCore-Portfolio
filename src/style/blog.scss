@@ -2,6 +2,34 @@
   display: grid;
   justify-content: center;
   margin-bottom: 30px;
+  position: relative;
+
+  .new-blog-link {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    margin-right: 50px;
+    margin-bottom: 80px;
+    background-color: white;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    box-shadow: 0px 10px 5px 0px rgba(50, 50, 50, 0.32);
+    transition: 0.5s ease-in-out;
+
+    a {
+      font-size: 3rem;
+      cursor: pointer;
+      color: $cool-orange;
+    }
+    &:hover {
+      transform: translateY(4px);
+    }
+  }
 
   .content-container {
     display: grid;
