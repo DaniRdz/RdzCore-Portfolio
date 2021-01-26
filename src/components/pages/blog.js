@@ -101,11 +101,14 @@ export default class Blog extends Component {
             this.handleSuccessfullNewBlogSubmission
           }
         />
-        <div className="new-blog-link">
-          <a onClick={this.handleNewBlogCLick}>
-            <i className="fas fa-feather-alt"></i>
-          </a>
-        </div>
+        {this.props.loggedInStatus === "LOGGED_IN" ? (
+          <div className="new-blog-link">
+            <a onClick={this.handleNewBlogCLick}>
+              <i className="fas fa-feather-alt"></i>
+            </a>
+          </div>
+        ) : null}
+
         <div className="content-container">{blogItems}</div>
         {this.state.isLoding ? (
           <div className="content-loader">

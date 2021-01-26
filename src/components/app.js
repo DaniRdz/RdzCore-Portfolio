@@ -109,7 +109,13 @@ export default class App extends Component {
             {this.state.loggedInStatus === "LOGGED_IN"
               ? this.authorizedPage()
               : null}
-            <Route exact path="/blog" component={Blog} />
+            <Route
+              exact
+              path="/blog"
+              render={(props) => (
+                <Blog {...props} loggedInStatus={this.state.loggedInStatus} />
+              )}
+            />
             <Route exact path="/b/:slug" component={BlogDetail} />
             <Route exact path="/about-me" component={About} />
             <Route exact path="/portfolio" component={Portfolio} />
