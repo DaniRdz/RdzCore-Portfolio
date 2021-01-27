@@ -42,6 +42,7 @@ export default class BlogForm extends Component {
         this.setState({
           title: "",
           blog_status: "",
+          content: "",
         });
         this.props.handleSuccessfullFormSubmission(
           response.data.portfolio_blog
