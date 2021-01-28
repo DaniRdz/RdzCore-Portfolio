@@ -116,7 +116,16 @@ export default class App extends Component {
                 <Blog {...props} loggedInStatus={this.state.loggedInStatus} />
               )}
             />
-            <Route exact path="/b/:slug" component={BlogDetail} />
+            <Route
+              exact
+              path="/b/:slug"
+              render={(props) => (
+                <BlogDetail
+                  {...props}
+                  loggedInStatus={this.state.loggedInStatus}
+                />
+              )}
+            />
             <Route exact path="/about-me" component={About} />
             <Route exact path="/portfolio" component={Portfolio} />
             <Route component={NoMatch} />
