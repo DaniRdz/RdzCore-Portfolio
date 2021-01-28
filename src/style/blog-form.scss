@@ -11,4 +11,8 @@
     @include base-btn();
     width: 100%;
   }
+  .image-uploader {
+    @include base-grid();
+    grid-template-columns: 200px;
+  }
 }
