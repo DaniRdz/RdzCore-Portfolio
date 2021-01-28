@@ -14,6 +14,8 @@ export default class BlogForm extends Component {
       blog_status: "",
       content: "",
       featured_image: "",
+      apiUrl: "https://rdzcore.devcamp.space/portfolio/portfolio_blogs",
+      apiAction: "post",
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -24,8 +26,23 @@ export default class BlogForm extends Component {
     this.djsConfig = this.djsConfig.bind(this);
     this.componentConfig = this.componentConfig.bind(this);
     this.handleFeauteredImageDrop = this.handleFeauteredImageDrop.bind(this);
+    this.deleteImage = this.deleteImage.bind(this);
 
     this.featuredImageRef = React.createRef();
+  }
+  deleteImage(imageType) {
+    axios
+      .delete(
+        `https://api.devcamp.space/portfolio/delete-portfolio-blog-image/${this.props.blog.id}?image_type=${imageType}`,
+        { withCredentials: true }
+      )
+      .then((response) => {
+        this.props.handleFeaturedImageDelete();
+        return response.data;
+      })
+      .catch((err) => {
+        console.log("deleteImage Eror", err);
+      });
   }
   handleFeauteredImageDrop() {
     return {
@@ -65,12 +82,12 @@ export default class BlogForm extends Component {
     return formData;
   }
   handleSubmit(event) {
-    axios
-      .post(
-        "https://rdzcore.devcamp.space/portfolio/portfolio_blogs",
-        this.buildForm(),
-        { withCredentials: true }
-      )
+    axios({
+      method: this.state.apiAction,
+      url: this.state.apiUrl,
+      data: this.buildForm(),
+      withCredentials: true,
+    })
       .then((response) => {
         if (this.state.featured_image) {
           this.featuredImageRef.current.dropzone.removeAllFiles();
@@ -80,9 +97,13 @@ export default class BlogForm extends Component {
           blog_status: "",
           content: "",
         });
-        this.props.handleSuccessfullFormSubmission(
-          response.data.portfolio_blog
-        );
+        if (this.props.editMode) {
+          this.props.handleUpdateFormSubmission(response.data.portfolio_blog);
+        } else {
+          this.props.handleSuccessfullFormSubmission(
+            response.data.portfolio_blog
+          );
+        }
       })
       .catch((err) => console.log("handleSubmitError", err));
     event.preventDefault();
@@ -94,11 +115,14 @@ export default class BlogForm extends Component {
   }
   componentDidMount() {
     if (this.props.editMode) {
-      const { id, title, blog_status } = this.props.blog;
+      const { id, title, blog_status, content } = this.props.blog;
       this.setState({
         id,
         title,
         blog_status,
+        content,
+        apiUrl: `https://rdzcore.devcamp.space/portfolio/portfolio_blogs/${id}`,
+        apiAction: "patch",
       });
     }
   }
@@ -137,7 +161,9 @@ export default class BlogForm extends Component {
             <div className="blog-edit-image-wrapper">
               <img src={this.props.blog.featured_image_url} />
               <div className="image-removal-link">
-                <a>Remove File</a>
+                <a onClick={() => this.deleteImage("featured_image")}>
+                  Remove File
+                </a>
               </div>
             </div>
           ) : (
