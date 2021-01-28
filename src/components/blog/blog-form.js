@@ -9,6 +9,7 @@ export default class BlogForm extends Component {
     super(props);
 
     this.state = {
+      id: "",
       title: "",
       blog_status: "",
       content: "",
@@ -90,6 +91,16 @@ export default class BlogForm extends Component {
     this.setState({
       [event.target.name]: event.target.value,
     });
+  }
+  componentDidMount() {
+    if (this.props.editMode) {
+      const { id, title, blog_status } = this.props.blog;
+      this.setState({
+        id,
+        title,
+        blog_status,
+      });
+    }
   }
   render() {
     return (
