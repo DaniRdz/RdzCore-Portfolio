@@ -5,6 +5,7 @@ import axios from "axios";
 import Home from "./pages/home";
 import About from "./pages/about-me";
 import Portfolio from "./pages/portfolio";
+import PortfolioDetail from "./pages/portfolio-detail";
 import Blog from "./pages/blog";
 import BlogDetail from "./pages/blog-details";
 import Auth from "./pages/auth";
@@ -128,6 +129,7 @@ export default class App extends Component {
             />
             <Route exact path="/about-me" component={About} />
             <Route exact path="/portfolio" component={Portfolio} />
+            <Route exact path="/portfolio/:slug" component={PortfolioDetail} />
             <Route component={NoMatch} />
           </Switch>
         </Router>
