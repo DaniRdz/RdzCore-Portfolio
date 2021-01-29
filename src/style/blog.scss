@@ -4,6 +4,18 @@
   margin-bottom: 30px;
   position: relative;
 
+  .admin-blog-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .action-icon {
+      color: $warning;
+      cursor: pointer;
+      margin-left: 15px;
+    }
+  }
+
   .new-blog-link {
     display: grid;
     justify-content: center;
