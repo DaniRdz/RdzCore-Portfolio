@@ -51,22 +51,30 @@ export default class AuthForm extends Component {
         <div className="grettigs-msg">Login To Access Your Dashboard</div>
 
         <form onSubmit={this.handleSubmit} className="auth-form-wrapper">
+          <div className="user-icon">
+            <i className="fas fa-user-secret"></i>
+          </div>
           <div className="error-text">{this.state.errText}</div>
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            value={this.state.email}
-            onChange={this.handleChange}
-          />
-
-          <input
-            type="password"
-            name="password"
-            placeholder="password"
-            value={this.state.password}
-            onChange={this.handleChange}
-          />
+          <div className="form-group">
+            <i className="fas fa-at"></i>
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              value={this.state.email}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <i className="fas fa-lock"></i>
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={this.state.password}
+              onChange={this.handleChange}
+            />
+          </div>
           <button className="btn" type="submit">
             Login
           </button>

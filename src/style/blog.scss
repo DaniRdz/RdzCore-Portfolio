@@ -13,6 +13,10 @@
       color: $warning;
       cursor: pointer;
       margin-left: 15px;
+
+      &:hover {
+        color: red;
+      }
     }
   }
 

@@ -5,6 +5,7 @@
   padding: 0rem 4rem 0rem 4rem;
 
   display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .auth-form {
@@ -16,12 +17,18 @@
   border: solid $cool-orange 3px;
 
   padding: 20px;
-  box-shadow: 0px 17px 16px 0px rgba(0, 0, 0, 0.5);
 }
 
 .auth-form {
-  display: grid;
-  grid-template-rows: 1fr 5fr;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  .user-icon {
+    justify-self: center;
+    align-self: center;
+    font-size: 5rem;
+  }
 
   .grettigs-msg {
     font-size: 1.5rem;
@@ -30,5 +37,22 @@
   }
 
   .auth-form-wrapper {
+    @include input-element();
+    @include base-grid();
+    grid-gap: 21px;
+    padding: 20px;
+
+    .btn {
+      @include base-btn();
+      width: 100%;
+    }
+    .form-group {
+      display: flex;
+      i {
+        font-size: 1.5em;
+        margin-right: 10px;
+        color: $cool-orange;
+      }
+    }
   }
 }
