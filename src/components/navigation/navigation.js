@@ -27,11 +27,14 @@ class Navigation extends Component {
   }
   render() {
     return (
-      <div
-        className={`nav-wrapper ${this.props.isHome ? "home-nav-wrapper" : ""}`}
-      >
+      <div className={this.props.isHome ? "home-nav-wrapper" : "nav-wrapper"}>
         <div className="left-column">
-          <Logo />
+          <div
+            className="nav-logo"
+            onClick={() => this.props.history.push("/")}
+          >
+            <Logo />
+          </div>
         </div>
         <div className="right-column">
           <div className="link">
