@@ -2,27 +2,19 @@
   grid-row: content-s/content-e;
   height: calc(100vh - 120px);
 
-  padding: 0rem 4rem 0rem 4rem;
-
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-
-.auth-form {
-  height: 500px;
-  width: 400px;
-  justify-self: center;
-  align-self: center;
-
-  border: solid $cool-orange 3px;
-
-  padding: 20px;
+.image {
+  background-size: cover;
 }
 
 .auth-form {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+
+  padding: 0px 80px 0px 80px;
 
   .user-icon {
     justify-self: center;
@@ -35,12 +27,15 @@
     font-weight: 600;
     align-self: center;
   }
+  .error-text {
+    justify-self: center;
+  }
 
   .auth-form-wrapper {
     @include input-element();
     @include base-grid();
     grid-gap: 21px;
-    padding: 20px;
+    padding: 42px;
 
     .btn {
       @include base-btn();
@@ -49,7 +44,7 @@
     .form-group {
       display: flex;
       i {
-        font-size: 1.5em;
+        font-size: 2em;
         margin-right: 10px;
         color: $cool-orange;
       }
