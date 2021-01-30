@@ -36,12 +36,14 @@ export default class AuthForm extends Component {
           this.setState({
             errText: "Wrong email or password",
           });
-          this.props.handleUnSuccesfulAuth();
+          this.props.handleUnsuccesfulAuth();
         }
       })
       .catch((err) => {
-        console.log("auth eror", err);
-        this.props.handleUnSuccesfulAuth();
+        this.setState({
+          errText: "An error occurred",
+        });
+        this.props.handleUnsuccesfulAuth();
       });
     event.preventDefault();
   }
