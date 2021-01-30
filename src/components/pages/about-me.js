@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 
+import imageProfile from "../../../static/assets/images/bio/profile.jpg";
+
 export default class About extends Component {
   render() {
     return (
       <div className="about-me">
-        <div className="about-me-img">Image goes here</div>
+        <div
+          className="about-me-img"
+          style={{ backgroundImage: `url(${imageProfile})` }}
+        />
         <div className="about-me-info">
           <div className="title">
             <div className="name">My name is Daniel Rodríguez,</div>
