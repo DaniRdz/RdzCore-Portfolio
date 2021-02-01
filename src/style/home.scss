@@ -9,7 +9,7 @@
 
   .home-info {
     justify-self: center;
-    align-self: end;
+    padding-top: 120px;
   }
 }
 
@@ -32,8 +32,6 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-
-  padding-bottom: 3rem;
 
   .media-links {
     align-self: center;
