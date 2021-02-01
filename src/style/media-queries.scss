@@ -77,4 +77,28 @@
       margin-bottom: 20px;
     }
   }
+  .auth {
+    grid-template-columns: 1fr;
+    .image {
+      grid-column: -1/1;
+      grid-row: -1/1;
+
+      opacity: 20%;
+    }
+
+    .auth-form {
+      padding: 0px;
+      justify-self: center;
+      grid-column: -1/1;
+      grid-row: -1/1;
+
+      position: relative;
+    }
+  }
+  .blog-form-wrapper {
+    padding: 20px;
+    .two-columns {
+      grid-template-columns: 1fr;
+    }
+  }
 }
