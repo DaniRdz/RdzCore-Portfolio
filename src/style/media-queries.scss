@@ -101,4 +101,23 @@
       grid-template-columns: 1fr;
     }
   }
+  .portfolio-manager {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 3fr;
+  }
+  .left-column {
+    grid-row: 1;
+    .portfolio-sidebar-list {
+      height: calc(100vh - 370px);
+    }
+  }
+  .right-column {
+    grid-row: 2;
+    .two-columns {
+      grid-template-columns: 1fr;
+    }
+    .image-uploaders {
+      grid-template-columns: 1fr;
+    }
+  }
 }
