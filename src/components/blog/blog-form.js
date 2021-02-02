@@ -11,7 +11,7 @@ export default class BlogForm extends Component {
     this.state = {
       id: "",
       title: "",
-      blog_status: "",
+      blog_status: "draft",
       content: "",
       featured_image: "",
       apiUrl: "https://rdzcore.devcamp.space/portfolio/portfolio_blogs",
@@ -94,7 +94,7 @@ export default class BlogForm extends Component {
         }
         this.setState({
           title: "",
-          blog_status: "",
+          blog_status: "draft",
           content: "",
         });
         if (this.props.editMode) {
@@ -137,13 +137,15 @@ export default class BlogForm extends Component {
             placeholder="Title"
             value={this.state.title}
           />
-          <input
+          <select
             onChange={this.handleChange}
-            type="text"
             name="blog_status"
-            placeholder="Blog Satus"
             value={this.state.blog_status}
-          />
+            className="select-element"
+          >
+            <option value="draft">Draft</option>
+            <option value="published">Published</option>
+          </select>
         </div>
         <div className="one-column">
           <RichTextEditor
