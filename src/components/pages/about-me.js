@@ -16,10 +16,11 @@ export default class About extends Component {
             <div className="career">I'm Fullstack Developer</div>
           </div>
           <div className="content-info">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-            placerat felis sit amet tellus tincidunt semper. Phasellus nisl
-            eros, mollis non ornare sit amet, cursus sed nisl. Cras dui tortor,
-            dapibus ac eleifend in, porttitor in odio.
+            I am proactive and I am willing to learn from the new challenges
+            that life puts me, I like working with technologies like React in
+            frontEnd and Node.js or Python to design APIs, to design Databases I
+            work with NoSQL (MongoDB) and SQL ( MySQL), I currently live in
+            Jalisco Mexico, but I am open to offers.
           </div>
           <div className="contact-info">
             <div className="info email">
