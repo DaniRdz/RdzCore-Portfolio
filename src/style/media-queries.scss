@@ -1,4 +1,4 @@
-@media screen and (max-width: 870px) {
+@media (max-width: 870px) {
   .container {
     grid-template-rows: [nav-bar-s] 240px [nav-bar-e content-s] 1fr [content-e];
   }
@@ -22,20 +22,11 @@
       align-items: center;
     }
   }
-  .home-nav-wrapper {
-    a {
-      color: $dark-soul;
 
-      &:hover {
-        color: $dark-soul;
-        border-bottom: 1px solid $dark-soul;
-      }
-    }
-    .link-active {
-      border-bottom: 1px solid $dark-soul;
-    }
-  }
   .home {
+    .background-img {
+      filter: brightness(0.5);
+    }
     .home-info {
       padding-top: 240px;
 
