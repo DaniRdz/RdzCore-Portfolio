@@ -49,7 +49,7 @@ export default class Home extends Component {
           </div>
           <div className="grettings-message">
             <div className="title">Hi I'm Daniel</div>
-            <div className="subtitle">Fullstack Developer</div>
+            <div className="subtitle">Full Stack Developer</div>
           </div>
           <button
             onClick={() => this.props.history.push("/about-me")}

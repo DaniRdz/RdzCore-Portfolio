@@ -13,11 +13,11 @@ export default class About extends Component {
         <div className="about-me-info">
           <div className="title">
             <div className="name">My name is Daniel Rodríguez,</div>
-            <div className="career">I'm Fullstack Developer</div>
+            <div className="career">I'm a Full Stack Developer</div>
           </div>
           <div className="content-info">
             I am proactive and I am willing to learn from the new challenges
-            that life puts me, I like working with technologies like React in
+            that life puts me in, I like working with technologies like React in
             frontEnd and Node.js or Python to design APIs, to design Databases I
             work with NoSQL (MongoDB) and SQL ( MySQL), I currently live in
             Jalisco Mexico, but I am open to offers.
