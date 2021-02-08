@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import MetaTags from "react-meta-tags";
 
 import backgroundPicture from "../../../static/assets/images/backgrounds/home.jpg";
-import profilePicture from "../../../static/assets/images/bio/profile.jpg";
+
 export default class Home extends Component {
   componentDidMount() {
     this.props.changeNavbar(true);
