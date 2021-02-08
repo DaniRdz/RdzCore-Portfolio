@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import MetaTags from "react-meta-tags";
 
 import backgroundPicture from "../../../static/assets/images/backgrounds/home.jpg";
-
+import profilePicture from "../../../static/assets/images/bio/profile.jpg";
 export default class Home extends Component {
   componentDidMount() {
     this.props.changeNavbar(true);
@@ -12,6 +13,23 @@ export default class Home extends Component {
   render() {
     return (
       <div className="home">
+        <MetaTags>
+          <meta
+            name="description"
+            content="Daniel Rodríguez Contreras en un desarrollador de software mexicano nacido en Guadalajara, Jalisco."
+          />
+          <meta property="og:title" content="RdzCore" />
+          <meta property="og:image" content={profilePicture} />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta
+            name="twitter:description"
+            content="Daniel Rodríguez Contreras en un desarrollador de software mexicano nacido en Guadalajara, Jalisco."
+          />
+          <meta name="twitter:title" content="RdzCore" />
+          <meta name="twitter:site" content="@RdzCore" />
+          <meta name="twitter:image" content={profilePicture} />
+          <meta name="twitter:creator" content="@RdzCore" />
+        </MetaTags>
         <div
           className="background-img"
           style={{
