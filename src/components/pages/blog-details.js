@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 import ReactHtmlParser from "react-html-parser";
-import MetaTags from "react-meta-tags";
 
 import BlogForm from "../blog/blog-form";
 
@@ -73,16 +72,6 @@ export default class BlogDetail extends Component {
       } else {
         return (
           <div className="content-container">
-            <MetaTags>
-              <meta property="og:title" content={title} />
-              <meta property="og:image" content={featured_image_url} />
-              <meta property="og:image:alt" content={title} />
-
-              <meta name="twitter:title" content={title} />
-              <meta name="twitter:site" content="@RdzCore" />
-              <meta name="twitter:image" content={featured_image_url} />
-              <meta name="twitter:creator" content="@RdzCore" />
-            </MetaTags>
             <h1 onClick={this.handleEditClick}>{title}</h1>
 
             {featured_image_url ? (
