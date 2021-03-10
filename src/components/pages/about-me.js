@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Helmet } from "react-helmet";
 
 import imageProfile from "../../../static/assets/images/bio/profile.jpg";
 
@@ -6,6 +7,9 @@ export default class About extends Component {
   render() {
     return (
       <div className="about-me">
+        <Helmet>
+          <title>About Me | RdzCore</title>
+        </Helmet>
         <div
           className="about-me-img"
           style={{ backgroundImage: `url(${imageProfile})` }}

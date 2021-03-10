@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Helmet } from "react-helmet";
 
 import AuthForm from "../auth/auth-form";
 
@@ -22,6 +23,9 @@ export default class Auth extends Component {
   render() {
     return (
       <div className="auth">
+        <Helmet>
+          <title>Auth | RdzCore</title>
+        </Helmet>
         <div
           className="image"
           style={{

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
 import BlogItem from "../blog/blog-item";
 import BlogModal from "../modals/blog-modal";
@@ -127,6 +128,9 @@ export default class Blog extends Component {
     });
     return (
       <div className="blog-container">
+        <Helmet>
+          <title>Blog | RdzCore</title>
+        </Helmet>
         <BlogModal
           modalIsOpen={this.state.blogModalIsOpen}
           handleModalClose={this.handleModalClose}

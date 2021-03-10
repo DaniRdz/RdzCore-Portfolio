@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
 export default class PortfolioDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isLoading: true,
       portfolioItem: {},
     };
   }
@@ -17,6 +19,7 @@ export default class PortfolioDetail extends Component {
       .then((response) => {
         this.setState({
           portfolioItem: response.data.portfolio_item,
+          isLoading: false,
         });
       })
       .catch((err) => {
@@ -50,6 +53,13 @@ export default class PortfolioDetail extends Component {
     };
     return (
       <div className="portfolio-detail-wrapper">
+        <Helmet>
+          {this.state.isLoading ? (
+            <title>...loading</title>
+          ) : (
+            <title>{`${name} | RdzCore`}</title>
+          )}
+        </Helmet>
         <div className="banner" style={bannerStyles}>
           <img src={logo_url} style={logoStyles} />
         </div>

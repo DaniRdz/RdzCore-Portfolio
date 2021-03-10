@@ -3,6 +3,7 @@ import axios from "axios";
 
 import PortfolioSideBarList from "../portfolio/portfolio-side-bar-list";
 import PortfolioForm from "../portfolio/portfolio-form";
+import { Helmet } from "react-helmet";
 
 export default class PortfolioManager extends Component {
   constructor() {
@@ -82,6 +83,9 @@ export default class PortfolioManager extends Component {
   render() {
     return (
       <div className="portfolio-manager">
+        <Helmet>
+          <title>Portfolio Manager | RdzCore</title>
+        </Helmet>
         <div className="right-column">
           <PortfolioForm
             handleEditFormSubmission={this.handleEditFormSubmission}

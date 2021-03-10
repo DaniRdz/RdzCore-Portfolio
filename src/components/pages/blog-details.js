@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import ReactHtmlParser from "react-html-parser";
+import { Helmet } from "react-helmet";
 
 import BlogForm from "../blog/blog-form";
 
@@ -12,6 +13,7 @@ export default class BlogDetail extends Component {
       blogId: this.props.match.params.slug,
       blogItem: {},
       editMode: false,
+      isLoading: true,
     };
 
     this.handleEditClick = this.handleEditClick.bind(this);
@@ -48,6 +50,7 @@ export default class BlogDetail extends Component {
       .then((response) => {
         this.setState({
           blogItem: response.data.portfolio_blog,
+          isLoading: false,
         });
       })
       .catch((err) => {
@@ -92,6 +95,17 @@ export default class BlogDetail extends Component {
       blog_status,
     } = this.state.blogItem;
 
-    return <div className="blog-container">{contentManager()}</div>;
+    return (
+      <div className="blog-container">
+        <Helmet>
+          {this.state.isLoading ? (
+            <title>...loading</title>
+          ) : (
+            <title>{`${title} | RdzCore`}</title>
+          )}
+        </Helmet>
+        {contentManager()}
+      </div>
+    );
   }
 }

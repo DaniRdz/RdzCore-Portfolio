@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Helmet } from "react-helmet";
 
 import backgroundPicture from "../../../static/assets/images/backgrounds/home.jpg";
 
@@ -12,6 +13,9 @@ export default class Home extends Component {
   render() {
     return (
       <div className="home">
+        <Helmet>
+          <title>Home | RdzCore</title>
+        </Helmet>
         <div
           className="background-img"
           style={{
