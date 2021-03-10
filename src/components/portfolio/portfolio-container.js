@@ -7,6 +7,7 @@ export default class PortfolioContainer extends Component {
   constructor() {
     super();
     this.state = {
+      isLoading: true,
       data: [],
     };
   }
@@ -17,6 +18,7 @@ export default class PortfolioContainer extends Component {
       .then((response) => {
         this.setState({
           data: response.data.portfolio_items,
+          isLoading: false,
         });
       })
       .catch((err) => {
@@ -33,6 +35,15 @@ export default class PortfolioContainer extends Component {
     this.getPortfolioItems();
   }
   render() {
-    return <div className="portfolio-container">{this.portfolioItems()}</div>;
+    return (
+      <div className="portfolio-container-wrapper">
+        <div className="portfolio-container">{this.portfolioItems()}</div>
+        {this.state.isLoading ? (
+          <div className="content-loader">
+            <i className="fab fa-react fa-spin"></i>
+          </div>
+        ) : null}
+      </div>
+    );
   }
 }

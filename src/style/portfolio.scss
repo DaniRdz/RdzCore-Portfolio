@@ -40,6 +40,10 @@
     }
   }
 }
+.portfolio-container-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+}
 
 .portfolio-container {
   padding: 0rem 2rem 0rem 2rem;
