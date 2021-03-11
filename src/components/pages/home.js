@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Helmet } from "react-helmet";
 
 import backgroundPicture from "../../../static/assets/images/backgrounds/home.jpg";
+import ProfileImage from "../../../static/assets/images/bio/profile.jpg";
 
 export default class Home extends Component {
   componentDidMount() {
@@ -15,6 +16,16 @@ export default class Home extends Component {
       <div className="home">
         <Helmet>
           <title>Home | RdzCore</title>
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:site" content="@RdzCore" />
+          <meta name="twitter:creator" content="@RdzCore" />
+          <meta property="og:url" content="https://rdzcore.herokuapp.com/" />
+          <meta property="og:title" content="Home | RdzCore" />
+          <meta
+            property="og:description"
+            content="Daniel Rodríguez Contreras is a Software Developer from Guadalajara, Jalisco, México."
+          />
+          <meta property="og:image" content={ProfileImage} />
         </Helmet>
         <div
           className="background-img"
