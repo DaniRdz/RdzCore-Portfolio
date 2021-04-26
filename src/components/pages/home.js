@@ -4,6 +4,9 @@ import { Helmet } from "react-helmet";
 import backgroundPicture from "../../../static/assets/images/backgrounds/home.jpg";
 
 export default class Home extends Component {
+  constructor(props) {
+    super(props);
+  }
   componentDidMount() {
     this.props.changeNavbar(true);
   }
@@ -47,7 +50,11 @@ export default class Home extends Component {
             >
               <i className="fab fa-linkedin-in"></i>
             </a>
-            <a className="media-link" href="#">
+            <a
+              className="media-link"
+              href="https://www.instagram.com/rdzcore/"
+              target="_blank"
+            >
               <i className="fab fa-instagram"></i>
             </a>
           </div>
