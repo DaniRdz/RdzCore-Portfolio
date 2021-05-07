@@ -12,6 +12,7 @@ import Auth from "./pages/auth";
 import NoMatch from "./pages/no-match";
 import Navigation from "./navigation/navigation";
 import PortfolioManager from "./pages/portfolio-manager";
+import Contact from "./pages/contact-me";
 
 export default class App extends Component {
   constructor(props) {
@@ -130,6 +131,7 @@ export default class App extends Component {
             <Route exact path="/about-me" component={About} />
             <Route exact path="/portfolio" component={Portfolio} />
             <Route exact path="/portfolio/:slug" component={PortfolioDetail} />
+            <Route exact path="/contact-me" component={Contact} />
             <Route component={NoMatch} />
           </Switch>
         </Router>

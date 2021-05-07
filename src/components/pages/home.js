@@ -63,7 +63,7 @@ export default class Home extends Component {
             <div className="subtitle">Full Stack Developer</div>
           </div>
           <button
-            onClick={() => this.props.history.push("/about-me")}
+            onClick={() => this.props.history.push("/contact-me")}
             className="btn-contact"
           >
             CONTACT ME
