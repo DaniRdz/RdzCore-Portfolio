@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import { createMessage } from "../../../firebase/client";
+
 export default class ContactForm extends Component {
   constructor(props) {
     super(props);
@@ -19,12 +21,12 @@ export default class ContactForm extends Component {
     });
   }
   handleSubmit(event) {
-    console.log(
-      "info of msg",
-      this.state.name,
-      this.state.email,
-      this.state.message
-    );
+    const { name, email, message } = this.state;
+    createMessage({
+      name,
+      email,
+      message,
+    });
 
     this.setState({
       name: "",
@@ -36,7 +38,7 @@ export default class ContactForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} className="contact-me-form-wrapper">
+      <form onSubmit={this.handleSubmit} className="contact-form-wrapper">
         <div className="two-columns">
           <input
             type="text"
