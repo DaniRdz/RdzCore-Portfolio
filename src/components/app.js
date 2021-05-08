@@ -13,6 +13,7 @@ import NoMatch from "./pages/no-match";
 import Navigation from "./navigation/navigation";
 import PortfolioManager from "./pages/portfolio-manager";
 import Contact from "./pages/contact-me";
+import Inbox from "./pages/inbox";
 
 export default class App extends Component {
   constructor(props) {
@@ -78,6 +79,7 @@ export default class App extends Component {
         path="/portfolio-manager"
         component={PortfolioManager}
       />,
+      <Route key="inbox" exact path="/inbox" component={Inbox} />,
     ];
   }
   render() {
