@@ -62,7 +62,11 @@ export default class ContactForm extends Component {
             onChange={this.handleChange}
           />
         </div>
-        <button className="btn" type="submit">
+        <button
+          disabled={!this.state.message.length}
+          className="btn"
+          type="submit"
+        >
           Send
         </button>
       </form>
