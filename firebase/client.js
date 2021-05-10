@@ -22,3 +22,19 @@ export const createMessage = ({ name, email, message }) => {
     date: firebase.firestore.Timestamp.fromDate(new Date()),
   });
 };
+
+export const fetchMessages = () => {
+  return db
+    .collection("messages")
+    .get()
+    .then((snapshot) => {
+      return snapshot.docs.map((doc) => {
+        const data = doc.data();
+        const id = doc.id;
+        return {
+          id,
+          ...data,
+        };
+      });
+    });
+};
