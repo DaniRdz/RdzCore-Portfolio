@@ -1,0 +1,11 @@
+.inbox-wrapper {
+  grid-row: content-s/content-e;
+  height: calc(100vh - 120px);
+
+  padding: 0rem 4rem 0rem 4rem;
+
+  .message-wrapper {
+    padding: 10px 0px 10px 0px;
+    display: flex;
+  }
+}
