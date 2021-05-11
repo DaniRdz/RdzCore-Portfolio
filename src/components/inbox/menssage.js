@@ -20,7 +20,7 @@ export default class Message extends Component {
     });
   }
   render() {
-    const { name, email, message, id } = this.props.message;
+    const { name, email, message, subject, id } = this.props.message;
     return (
       <div
         className="message-wrapper"
@@ -28,7 +28,7 @@ export default class Message extends Component {
         onMouseLeave={() => this.handleMouseLeave()}
       >
         <div className="name">{name}</div>
-        <div className="topic">Cotizacion de Un proyecto</div>
+        <div className="topic">{subject}</div>
         <div className="message">{message}</div>
         {this.state.showSettings ? (
           <div className="settings">

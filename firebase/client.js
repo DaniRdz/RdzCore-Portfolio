@@ -14,11 +14,12 @@ firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
 
-export const createMessage = ({ name, email, message }) => {
+export const createMessage = ({ name, email, message, subject }) => {
   return db.collection("messages").add({
     name,
     email,
     message,
+    subject,
     date: firebase.firestore.Timestamp.fromDate(new Date()),
   });
 };

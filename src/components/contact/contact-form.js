@@ -10,6 +10,7 @@ export default class ContactForm extends Component {
       name: "",
       email: "",
       message: "",
+      subject: "",
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,17 +22,19 @@ export default class ContactForm extends Component {
     });
   }
   handleSubmit(event) {
-    const { name, email, message } = this.state;
+    const { name, email, message, subject } = this.state;
     createMessage({
       name,
       email,
       message,
+      subject,
     });
 
     this.setState({
       name: "",
       email: "",
       message: "",
+      subject: "",
     });
     event.preventDefault();
   }
@@ -39,6 +42,15 @@ export default class ContactForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit} className="contact-form-wrapper">
+        <div className="one-colums">
+          <input
+            type="text"
+            name="subject"
+            placeholder="Subject"
+            value={this.state.subject}
+            onChange={this.handleChange}
+          />
+        </div>
         <div className="two-columns">
           <input
             type="text"
