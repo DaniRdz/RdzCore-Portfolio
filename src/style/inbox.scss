@@ -3,9 +3,57 @@
   height: calc(100vh - 120px);
 
   padding: 0rem 4rem 0rem 4rem;
+  .inbox-list {
+    border-top: $offgray solid 1px;
+  }
 
   .message-wrapper {
     padding: 10px 0px 10px 0px;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 2fr 3fr 1fr;
+    height: 44px;
+
+    align-items: center;
+
+    border-bottom: $offgray solid 1px;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+
+    .name,
+    .topic,
+    .date {
+      font-weight: 600;
+    }
+    .date {
+      justify-self: right;
+    }
+
+    &:hover {
+      -webkit-box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.3);
+      box-shadow: 3¿0px 3px 4px 0px rgba(0, 0, 0, 0.3);
+    }
+
+    .settings {
+      display: flex;
+      height: 100%;
+
+      i {
+        font-size: 1.3rem;
+      }
+
+      .setting-icon {
+        display: flex;
+        flex: 1 1 auto;
+        justify-content: center;
+        align-items: center;
+
+        &:hover {
+          background: radial-gradient(#cbcbcb 15%, transparent 16%);
+          background-size: 180px 180px;
+          color: black;
+          background-position: center;
+        }
+      }
+    }
   }
 }

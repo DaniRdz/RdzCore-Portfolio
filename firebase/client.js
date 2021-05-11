@@ -26,6 +26,7 @@ export const createMessage = ({ name, email, message }) => {
 export const fetchMessages = () => {
   return db
     .collection("messages")
+    .orderBy("date", "desc")
     .get()
     .then((snapshot) => {
       return snapshot.docs.map((doc) => {
