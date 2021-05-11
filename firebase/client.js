@@ -29,13 +29,24 @@ export const fetchMessages = () => {
     .collection("messages")
     .orderBy("date", "desc")
     .get()
-    .then((snapshot) => {
-      return snapshot.docs.map((doc) => {
+    .then(({ docs }) => {
+      return docs.map((doc) => {
         const data = doc.data();
         const id = doc.id;
+        const { date } = data;
+        const createdAtDate = new Date(date.seconds * 1000);
+
+        const normalizedDate = new Intl.DateTimeFormat("es-ES", {
+          month: "long",
+          day: "numeric",
+          hour: "numeric",
+          minute: "numeric",
+        }).format(createdAtDate);
+
         return {
-          id,
           ...data,
+          id,
+          date: normalizedDate,
         };
       });
     });
