@@ -11,6 +11,12 @@ export default class InboxList extends Component {
     this.state = {
       messages: [],
     };
+    this.handleDelete = this.handleDelete.bind(this);
+  }
+  handleDelete(id) {
+    this.setState({
+      messages: this.state.messages.filter((message) => message.id !== id),
+    });
   }
   componentDidMount() {
     fetchMessages().then((messages) => {
@@ -19,7 +25,13 @@ export default class InboxList extends Component {
   }
   renderMessages() {
     return this.state.messages.map((message) => {
-      return <Message key={message.id} message={message} />;
+      return (
+        <Message
+          key={message.id}
+          message={message}
+          handleDelete={this.handleDelete}
+        />
+      );
     });
   }
   render() {

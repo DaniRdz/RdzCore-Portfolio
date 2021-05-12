@@ -17,6 +17,7 @@ export default class Message extends Component {
 
   handleDeleteClick(id) {
     deleteMessage(id);
+    this.props.handleDelete(id);
   }
 
   messageHandleClick(id) {
