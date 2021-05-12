@@ -51,3 +51,28 @@ export const fetchMessages = () => {
       });
     });
 };
+
+export const deleteMessage = (id) => {
+  return db
+    .collection("messages")
+    .doc(id)
+    .delete()
+    .then(() => {
+      console.log("Document successfully deleted!");
+    })
+    .catch((error) => {
+      console.error("Error removing document: ", error);
+    });
+};
+
+export const getMessageById = (id) => {
+  return db
+    .collection("messages")
+    .doc(id)
+    .get()
+    .then((doc) => {
+      const data = doc.data();
+
+      console.log("Data", data);
+    });
+};

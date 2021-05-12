@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Truncate from "react-truncate";
 
+import { getMessageById, deleteMessage } from "../../../firebase/client";
+
 export default class Message extends Component {
   constructor(props) {
     super(props);
@@ -8,6 +10,19 @@ export default class Message extends Component {
     this.state = {
       showSettings: false,
     };
+
+    this.messageHandleClick = this.messageHandleClick.bind(this);
+    this.handleDeleteClick = this.handleDeleteClick.bind(this);
+  }
+
+  handleDeleteClick(id) {
+    deleteMessage(id);
+  }
+
+  messageHandleClick(id) {
+    console.log("id", id);
+
+    getMessageById(id);
   }
 
   handleMouseEnter() {
@@ -34,14 +49,22 @@ export default class Message extends Component {
             {subject}
           </Truncate>
         </div>
-        <div className="message">
+        <div
+          className="message"
+          onClick={() => {
+            this.messageHandleClick(id);
+          }}
+        >
           <Truncate lines={1} ellipsis={<span>...</span>}>
             {message}
           </Truncate>
         </div>
         {this.state.showSettings ? (
           <div className="settings">
-            <div className="setting-icon">
+            <div
+              className="setting-icon"
+              onClick={() => this.handleDeleteClick(id)}
+            >
               <i className="far fa-trash-alt"></i>
             </div>
             <div className="setting-icon">

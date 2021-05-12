@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import Message from "./menssage";
+import Message from "./message";
 
 import { fetchMessages } from "../../../firebase/client";
 
