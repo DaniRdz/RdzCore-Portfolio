@@ -14,6 +14,7 @@ import Navigation from "./navigation/navigation";
 import PortfolioManager from "./pages/portfolio-manager";
 import Contact from "./pages/contact-me";
 import Inbox from "./pages/inbox";
+import MessageDetails from "./pages/message-details";
 
 export default class App extends Component {
   constructor(props) {
@@ -80,6 +81,12 @@ export default class App extends Component {
         component={PortfolioManager}
       />,
       <Route key="inbox" exact path="/inbox" component={Inbox} />,
+      <Route
+        key="message-details"
+        exact
+        path="/inbox/:slug"
+        component={MessageDetails}
+      />,
     ];
   }
   render() {

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import Truncate from "react-truncate";
 
-import { getMessageById, deleteMessage } from "../../../firebase/client";
+import { deleteMessage } from "../../../firebase/client";
 
 export default class Message extends Component {
   constructor(props) {
@@ -11,19 +12,12 @@ export default class Message extends Component {
       showSettings: false,
     };
 
-    this.messageHandleClick = this.messageHandleClick.bind(this);
     this.handleDeleteClick = this.handleDeleteClick.bind(this);
   }
 
   handleDeleteClick(id) {
     deleteMessage(id);
     this.props.handleDelete(id);
-  }
-
-  messageHandleClick(id) {
-    console.log("id", id);
-
-    getMessageById(id);
   }
 
   handleMouseEnter() {
@@ -37,7 +31,7 @@ export default class Message extends Component {
     });
   }
   render() {
-    const { name, email, message, subject, id, date } = this.props.message;
+    const { name, message, subject, id, date } = this.props.message;
     return (
       <div
         className="message-wrapper"
@@ -50,12 +44,7 @@ export default class Message extends Component {
             {subject}
           </Truncate>
         </div>
-        <div
-          className="message"
-          onClick={() => {
-            this.messageHandleClick(id);
-          }}
-        >
+        <div className="message">
           <Truncate lines={1} ellipsis={<span>...</span>}>
             {message}
           </Truncate>
@@ -69,7 +58,9 @@ export default class Message extends Component {
               <i className="far fa-trash-alt"></i>
             </div>
             <div className="setting-icon">
-              <i className="far fa-envelope-open"></i>
+              <Link to={`/inbox/${id}`}>
+                <i className="far fa-envelope-open"></i>
+              </Link>
             </div>
           </div>
         ) : (

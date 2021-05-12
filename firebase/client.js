@@ -72,7 +72,16 @@ export const getMessageById = (id) => {
     .get()
     .then((doc) => {
       const data = doc.data();
+      const { date } = data;
+      const createdAtDate = new Date(date.seconds * 1000);
 
-      console.log("Data", data);
+      const normalizedDate = new Intl.DateTimeFormat("es-ES", {
+        month: "long",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+      }).format(createdAtDate);
+
+      return { ...data, date: normalizedDate };
     });
 };
