@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Helmet } from "react-helmet";
 
 import { getMessageById } from "../../../firebase/client";
 
@@ -8,12 +9,14 @@ export default class MessageDetails extends Component {
 
     this.state = {
       message: {},
+      isLoading: true,
     };
   }
   componentDidMount() {
     getMessageById(this.props.match.params.slug).then((message) =>
       this.setState({
         message,
+        isLoading: false,
       })
     );
   }
@@ -21,6 +24,13 @@ export default class MessageDetails extends Component {
     const { date, name, subject, message, email } = this.state.message;
     return (
       <div className="message-details-wrapper">
+        <Helmet>
+          {this.state.isLoading ? (
+            <title>...loading</title>
+          ) : (
+            <title>{`${subject} | RdzCore`}</title>
+          )}
+        </Helmet>
         <h1>{subject}</h1>
         <div className="message-header">
           <div className="contact-message-info">

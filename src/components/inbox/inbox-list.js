@@ -10,6 +10,7 @@ export default class InboxList extends Component {
 
     this.state = {
       messages: [],
+      isLoading: true,
     };
     this.handleDelete = this.handleDelete.bind(this);
   }
@@ -20,7 +21,7 @@ export default class InboxList extends Component {
   }
   componentDidMount() {
     fetchMessages().then((messages) => {
-      this.setState({ messages });
+      this.setState({ messages, isLoading: false });
     });
   }
   renderMessages() {
@@ -35,6 +36,15 @@ export default class InboxList extends Component {
     });
   }
   render() {
-    return <div className="inbox-list">{this.renderMessages()}</div>;
+    return (
+      <div className="inbox-list">
+        {this.renderMessages()}
+        {this.state.isLoading ? (
+          <div className="content-loader">
+            <i className="fab fa-react fa-spin"></i>
+          </div>
+        ) : null}
+      </div>
+    );
   }
 }
