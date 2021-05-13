@@ -17,7 +17,7 @@
 
     border-bottom: $offgray solid 1px;
     transition: 0.3s ease-in-out;
-    cursor: pointer;
+    cursor: default;
 
     a {
       text-decoration: none;
@@ -51,6 +51,8 @@
         flex: 1 1 auto;
         justify-content: center;
         align-items: center;
+
+        cursor: pointer;
 
         &:hover {
           background: radial-gradient(#cbcbcb 15%, transparent 16%);

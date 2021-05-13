@@ -51,16 +51,16 @@ export default class Message extends Component {
         </div>
         {this.state.showSettings ? (
           <div className="settings">
+            <div className="setting-icon">
+              <Link to={`/inbox/${id}`}>
+                <i className="far fa-envelope-open"></i>
+              </Link>
+            </div>
             <div
               className="setting-icon"
               onClick={() => this.handleDeleteClick(id)}
             >
               <i className="far fa-trash-alt"></i>
-            </div>
-            <div className="setting-icon">
-              <Link to={`/inbox/${id}`}>
-                <i className="far fa-envelope-open"></i>
-              </Link>
             </div>
           </div>
         ) : (

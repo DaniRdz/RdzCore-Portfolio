@@ -4,3 +4,41 @@
 
   padding: 0rem 4rem 0rem 4rem;
 }
+
+.message-details-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    color: $cool-orange;
+  }
+  .message-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .contact-message-info {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 1.4rem;
+
+      .name {
+        font-weight: 600;
+      }
+
+      .email {
+        color: $offgray;
+      }
+    }
+    .date {
+      font-size: 1.2rem;
+      color: $offgray;
+    }
+  }
+  .message-content {
+    padding-top: 30px;
+    text-align: justify;
+    font-size: 1.1rem;
+  }
+}
