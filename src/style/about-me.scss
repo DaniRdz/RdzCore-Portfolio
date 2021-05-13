@@ -37,6 +37,9 @@
       color: $cool-orange;
     }
   }
+  .content-info {
+    text-align: justify;
+  }
 }
 
 .contact-info {
@@ -74,6 +77,15 @@
 
     &:hover {
       color: $cool-orange;
+    }
+  }
+}
+.msn {
+  .subtitle {
+    a {
+      text-decoration: none;
+      color: $cool-orange;
+      font-weight: 600;
     }
   }
 }

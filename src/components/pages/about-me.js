@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 
 import imageProfile from "../../../static/assets/images/bio/profile.jpg";
 
@@ -31,9 +32,12 @@ export default class About extends Component {
               <i className="far fa-envelope"></i>
               <div className="subtitle">daniel.rod.core@gmail.com</div>
             </div>
-            <div className="info phone">
-              <i className="fab fa-whatsapp"></i>
-              <div className="subtitle"> 33 11 22 86 71</div>
+            <div className="info msn">
+              <i className="far fa-comment-dots"></i>
+              <div className="subtitle">
+                Type me a message
+                <Link to="/contact-me"> here</Link>
+              </div>
             </div>
             <div className="info place">
               <i className="fas fa-map-marker-alt"></i>
