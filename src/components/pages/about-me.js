@@ -35,7 +35,7 @@ export default class About extends Component {
             <div className="info msn">
               <i className="far fa-comment-dots"></i>
               <div className="subtitle">
-                Type me a message
+                Send me a message
                 <Link to="/contact-me"> here</Link>
               </div>
             </div>

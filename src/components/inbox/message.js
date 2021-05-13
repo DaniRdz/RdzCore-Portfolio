@@ -40,9 +40,7 @@ export default class Message extends Component {
       >
         <div className="name">{name}</div>
         <div className="topic">
-          <Truncate lines={1} ellipsis={<span>...</span>}>
-            {subject}
-          </Truncate>
+          <Link to={`/inbox/${id}`}>{subject}</Link>
         </div>
         <div className="message">
           <Truncate lines={1} ellipsis={<span>...</span>}>

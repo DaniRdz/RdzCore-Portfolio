@@ -45,7 +45,7 @@ export default class Home extends Component {
             </a>
             <a
               className="media-link"
-              href="https://www.linkedin.com/in/daniel-rodr%C3%ADguez-contreras/"
+              href="https://www.linkedin.com/in/daniel-rodríguez-contreras"
               target="_blank"
             >
               <i className="fab fa-linkedin-in"></i>
