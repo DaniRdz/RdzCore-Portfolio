@@ -3,7 +3,7 @@ import "firebase/firebase-firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBmdFOKd0MzeXxwZ3gZHtQEm-uFJP7n1-U",
-  authDomain: "rdzcore.herokuapp.com",
+  authDomain: "rdzcore-msn.firebaseapp.com",
   projectId: "rdzcore-msn",
   storageBucket: "rdzcore-msn.appspot.com",
   messagingSenderId: "889462383401",
