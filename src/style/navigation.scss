@@ -67,9 +67,9 @@
 
 .special-links {
   display: flex;
+  gap: 20px;
 
   .sign-out {
-    margin-left: 1rem;
     cursor: pointer;
   }
 }

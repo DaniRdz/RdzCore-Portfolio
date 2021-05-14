@@ -12,6 +12,9 @@ import Auth from "./pages/auth";
 import NoMatch from "./pages/no-match";
 import Navigation from "./navigation/navigation";
 import PortfolioManager from "./pages/portfolio-manager";
+import Contact from "./pages/contact-me";
+import Inbox from "./pages/inbox";
+import MessageDetails from "./pages/message-details";
 
 export default class App extends Component {
   constructor(props) {
@@ -77,6 +80,13 @@ export default class App extends Component {
         path="/portfolio-manager"
         component={PortfolioManager}
       />,
+      <Route key="inbox" exact path="/inbox" component={Inbox} />,
+      <Route
+        key="message-details"
+        exact
+        path="/inbox/:slug"
+        component={MessageDetails}
+      />,
     ];
   }
   render() {
@@ -130,6 +140,7 @@ export default class App extends Component {
             <Route exact path="/about-me" component={About} />
             <Route exact path="/portfolio" component={Portfolio} />
             <Route exact path="/portfolio/:slug" component={PortfolioDetail} />
+            <Route exact path="/contact-me" component={Contact} />
             <Route component={NoMatch} />
           </Switch>
         </Router>

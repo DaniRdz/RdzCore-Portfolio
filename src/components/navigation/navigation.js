@@ -60,8 +60,13 @@ class Navigation extends Component {
           {this.props.loggedInStatus === "LOGGED_IN" ? (
             <div className="special-links">
               <div className="link">
+                <NavLink to="/inbox" activeClassName="link-active">
+                  Inbox
+                </NavLink>
+              </div>
+              <div className="link">
                 <NavLink to="/portfolio-manager" activeClassName="link-active">
-                  Portfolio Manager
+                  <i className="fas fa-cogs"></i>
                 </NavLink>
               </div>
               <div className="sign-out" onClick={() => this.handleSignOut()}>
