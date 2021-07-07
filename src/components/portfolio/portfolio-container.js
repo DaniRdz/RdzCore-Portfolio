@@ -14,7 +14,9 @@ export default class PortfolioContainer extends Component {
 
   getPortfolioItems() {
     axios
-      .get("https://rdzcore.devcamp.space/portfolio/portfolio_items")
+      .get(
+        "https://rdzcore.devcamp.space/portfolio/portfolio_items?order_by=position&direction=asc"
+      )
       .then((response) => {
         this.setState({
           data: response.data.portfolio_items,
